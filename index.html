@@ -1,31 +1,104 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-  <script>
-    function toggleContent() {
-      var toggleBtn = document.getElementById("toggleBtn");
-      var cardContent = document.getElementById("cardContent");
-      if(cardContent.innerHTML === "Some brief summary text about the card.") {
-        cardContent.innerHTML = "Additional content that will be toggled on and off.";
-        toggleBtn.innerHTML = "Toggle 2";
-      } else {
-        cardContent.innerHTML = "Some brief summary text about the card.";
-        toggleBtn.innerHTML = "Toggle 1";
-      }
-    }
-  </script>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
 </head>
-<body>
-  <div class="max-w-sm rounded overflow-hidden shadow-lg">
-    <div class="px-6 py-4">
-      <div class="font-bold text-xl mb-2">Card Title</div>
-      <p class="text-gray-700 text-base" id="cardContent">
-        Some brief summary text about the card.
+<body class="bg-gray-300">
+  <container class="h-screen w-screen items-center justify-center flex flex-col">
+  <div class="bg-white shadow-md rounded-md h-3/4 w-3/4 flex flex-col items-center overflow-hidden shadow-lg">
+    <div class="font-bold text-4xl py-6" id="Title"></div>
+      <p class="text-gray-700 text-xl text-wrap overflow-hidden flex flex-rows" id="Content">
       </p>
-    </div>
-    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" id="toggleBtn" onclick="toggleContent()">Toggle 1</button>
   </div>
+  <div class="flex justify-center mt-4">
+    <button class="py-2 px-3 rounded-full mr-2" id="Button1">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+      </svg>
+           
+    </span></button>
+    <button class="py-2 px-3 rounded-full mr-2" id="Button2">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6.429 9.75L2.25 12l4.179 2.25m0-4.5l5.571 3 5.571-3m-11.142 0L2.25 7.5 12 2.25l9.75 5.25-4.179 2.25m0 0L21.75 12l-4.179 2.25m0 0l4.179 2.25L12 21.75 2.25 16.5l4.179-2.25m11.142 0l-5.571 3-5.571-3" />
+      </svg>
+    </span></button>
+    <button class="py-2 px-3 rounded-full mr-2" id="Button3">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
+      </svg>      
+    </span></button>
+    <button class="py-2 px-3 rounded-full mr-2" id="Button4">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+      </svg>
+    </span></button>
+    </div>
+  </container>
 </body>
-</html>
+    <script>
+      <!----Future html file pulls--->
 
+      let Bio;
+      let Skills;
+      let Projects;
+      let Contact;
+      
+      async function fetchData() {
+      let response = await fetch("bio.html");
+      let Bio = await response.text();
+      return Bio 
+      }
+
+      async function fetchData2() {
+        let response = await fetch("skills.html");
+        let Skills = await response.text();
+        return Skills
+      }
+
+      async function fetchData3() {
+      let response = await fetch("projects.html");
+      let Projects = await response.text();
+      return Projects
+      }
+
+      async function fetchData4() {
+        let response = await fetch("contact.html");
+        let Contact = await response.text();
+        return Contact
+      }
+
+      async function init() {
+        let [Bio, Skills, Projects, Contact] = await Promise.all([fetchData(), fetchData2(), fetchData3(), fetchData4()]);
+        contentArray = [
+          {title: "Bio", content: `${Bio}`},
+          {title: "Skills", content: `${Skills}`},
+          {title: "Projects", content: `${Projects}`},
+          {title: "Contact", content: `${Contact}`},
+        ];
+        let Content = document.getElementById("Content");
+        let Title = document.getElementById("Title");
+        let Button1 = document.getElementById("Button1");
+        let Button2 = document.getElementById("Button2");
+        let Button3 = document.getElementById("Button3");
+        let Button4 = document.getElementById("Button4");
+
+        Content.innerHTML = contentArray[0].content;
+        Title.innerHTML = contentArray[0].title;  
+
+        function toggleContent(index) {
+        Content.innerHTML = contentArray[index].content;
+        Title.innerHTML = contentArray[index].title;    
+        }
+
+        Button1.addEventListener("click", function() { toggleContent(0); });
+        Button2.addEventListener("click", function() { toggleContent(1); });
+        Button3.addEventListener("click", function() { toggleContent(2); });
+        Button4.addEventListener("click", function() { toggleContent(3); });
+      }
+      init();
+
+    </script>
+</html>
