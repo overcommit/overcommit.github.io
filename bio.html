@@ -1,1 +1,20 @@
-'<div class="h-1/2 mb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Volutpat diam ut venenatis tellus in metus vulputate. Praesent semper feugiat nibh sed pulvinar proin gravida hendrerit lectus. Eget nunc lobortis mattis aliquam faucibus purus. Nibh sed pulvinar proin gravida hendrerit lectus. Nisi lacus sed viverra tellus in hac habitasse. Vel quam elementum pulvinar etiam non. Magna etiam tempor orci eu lobortis. Quis lectus nulla at volutpat diam ut venenatis tellus in. Pellentesque eu tincidunt tortor aliquam nulla facilisi cras fermentum. Netus et malesuada fames ac turpis egestas sed tempus. Augue mauris augue neque gravida in.</div><div class="h-1/2 mb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Volutpat diam ut venenatis tellus in metus vulputate. Praesent semper feugiat nibh sed pulvinar proin gravida hendrerit lectus. Eget nunc lobortis mattis aliquam faucibus purus. Nibh sed pulvinar proin gravida hendrerit lectus. Nisi lacus sed viverra tellus in hac habitasse. Vel quam elementum pulvinar etiam non. Magna etiam tempor orci eu lobortis. Quis lectus nulla at volutpat diam ut venenatis tellus in. Pellentesque eu tincidunt tortor aliquam nulla facilisi cras fermentum. Netus et malesuada fames ac turpis egestas sed tempus. Augue mauris augue neque gravida in.</div>'
+<div x-data="{ openTab: 1 }" class="overflow-hidden">
+    <div class="flex flex-wrap">
+    <ul class="flex border-b">
+      <li class="-mb-px mr-1" x-bind:class="{ 'bg-black-500': openTab === 1 }" 
+      @click="openTab = 1">
+        <a class="inline-block py-2 px-16 text-white-700 font-semibold w-full" href="#">About Me</a>
+      </li>
+      <li class="mr-1" x-bind:class="{ 'bg-black-500': openTab === 2 }" 
+      @click="openTab = 2">
+        <a class="inline-block py-2 text-white-700 font-semibold w-full" href="#">Work History</a>
+      </li>
+    </ul>
+    <div class="w-full">
+      <div x-show="openTab === 1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam in maximus quam. Nunc mollis magna turpis, sed sollicitudin libero pulvinar ac. Etiam auctor lectus ut nulla facilisis, vitae faucibus diam convallis. Nunc a laoreet ante. Donec scelerisque, nisi sit amet pulvinar eleifend, purus risus ultrices diam, eu dapibus justo nisl ac magna. Cras vitae congue risus. Vestibulum at metus est. Phasellus eget lobortis enim. Integer dictum metus nec augue tincidunt convallis. Maecenas quis nunc tristique, pulvinar sapien sit amet, dictum arcu. Sed tempor lectus ex, non dignissim mauris gravida non. Cras lacinia volutpat quam, eget sollicitudin arcu pharetra ac. Cras sit amet nisi nisl. Mauris suscipit felis eu diam vulputate, sed rhoncus nisl feugiat.</div>
+      <div x-show="openTab === 2">Ut vel odio id tellus porttitor hendrerit. Ut vulputate enim eget viverra tristique. Morbi sollicitudin nibh gravida, fringilla dui sit amet, finibus lorem. Vestibulum in felis facilisis, faucibus nunc malesuada, sollicitudin urna. Curabitur vitae lacus quis orci rutrum aliquam. Cras laoreet sagittis enim ut viverra. Praesent consequat, sem nec sollicitudin tempus, lacus justo auctor est, malesuada ornare leo libero eget nibh. Quisque non blandit sapien. Donec vel ante eget arcu molestie cursus et et nisl.
+
+        Suspendisse varius augue sit amet fermentum lacinia. Fusce suscipit lacus erat, vitae dapibus lectus dignissim eget. Suspendisse sit amet magna eget libero luctus efficitur id in ligula. Nunc egestas lacus a erat pulvinar, eget ornare arcu lobortis. Quisque pulvinar, ipsum in laoreet fermentum, lacus tortor convallis erat, sit amet cursus tellus libero nec ligula. Praesent ac orci leo. Pellentesque maximus aliquet leo, auctor ultricies est aliquet id. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</div>
+    </div>
+    </div>
+</div>

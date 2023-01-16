@@ -5,41 +5,37 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 </head>
 <body class="bg-gray-300">
-  <container class="h-screen w-screen items-center justify-center flex flex-col">
-  <div class="bg-white shadow-md rounded-md h-3/4 w-3/4 flex flex-col items-center overflow-hidden shadow-lg">
-    <div class="font-bold text-4xl py-6" id="Title"></div>
-      <p class="text-gray-700 text-xl text-wrap overflow-hidden flex flex-rows" id="Content">
-      </p>
-  </div>
-  <div class="flex justify-center mt-4">
-    <button class="py-2 px-3 rounded-full mr-2" id="Button1">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
-      </svg>
-           
-    </span></button>
-    <button class="py-2 px-3 rounded-full mr-2" id="Button2">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M6.429 9.75L2.25 12l4.179 2.25m0-4.5l5.571 3 5.571-3m-11.142 0L2.25 7.5 12 2.25l9.75 5.25-4.179 2.25m0 0L21.75 12l-4.179 2.25m0 0l4.179 2.25L12 21.75 2.25 16.5l4.179-2.25m11.142 0l-5.571 3-5.571-3" />
-      </svg>
-    </span></button>
-    <button class="py-2 px-3 rounded-full mr-2" id="Button3">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
-      </svg>      
-    </span></button>
-    <button class="py-2 px-3 rounded-full mr-2" id="Button4">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-      </svg>
-    </span></button>
+  <container class="h-screen w-screen items-center justify-center flex flex-col text-wrap">
+    <div class="bg-white shadow-md rounded-md h-full w-full sm:h-3/4 sm:w-3/4 flex flex-col items-center overflow-hidden shadow-lg">
+      <div class="font-bold text-4xl sm:py-6" id="Title"></div>
+        <p class="text-gray-700 text-xl flex" id="Content">
+        </p>
     </div>
+    <div class="flex justify-center">
+      <div x-data="{ activeButton: 1 }">
+        <button class="px-3 rounded-full mr-2 sm:w-24 sm:h-24" id='Button1' x-on:click="activeButton == 1 ? activeButton = null : activeButton = 1">
+             <img id="img1" class="w-full h-full" x-bind:src="activeButton === 1 ? './profilecolored.svg' : './profile.svg'" >
+         </button>
+         <button class="px-3 rounded-full mr-2 sm:w-24 sm:h-24" id="Button2" x-on:click="activeButton == 2 ? activeButton = null : activeButton = 2">
+             <img id="img2" class="w-full h-full" x-bind:src="activeButton === 2 ? './stackcolored.svg' : './stack.svg'">
+         </button>
+         <button class="px-3 rounded-full mr-2 sm:w-24 sm:h-24" id="Button3" x-on:click="activeButton == 3 ? activeButton = null : activeButton = 3">
+          <img id="img3" class="w-full h-full" x-bind:src="activeButton === 3 ? './beakercolored.svg' : './beaker.svg'">
+    </button>
+    <button class="px-3 rounded-full mr-2 sm:w-24 sm:h-24" id="Button4" x-on:click="activeButton == 4 ? activeButton = null : activeButton = 4">
+      <img id="img4" class="w-full h-full" x-bind:src="activeButton === 4 ? './emailcolored.svg' : './email.svg'">
+  </button>
+</div>
+            
+     
+    
   </container>
 </body>
     <script>
-      <!----Future html file pulls--->
+      <!----File Fetch---->
 
       let Bio;
       let Skills;
