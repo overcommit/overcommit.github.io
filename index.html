@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="/dist/output.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 </head>
 <body class="bg-gray-300">
   <container class="h-screen w-screen items-center justify-center flex flex-col text-wrap">
-    <div class="bg-white shadow-md rounded-md h-full w-full sm:h-3/4 sm:w-3/4 flex flex-col items-center overflow-hidden shadow-lg">
+    <div class="bg-white rounded-md h-full w-full sm:h-3/4 sm:w-3/4 flex flex-col items-center overflow-hidden shadow:lg">
       <div class="font-bold text-4xl sm:py-6" id="Title"></div>
         <p class="text-gray-700 text-xl flex" id="Content">
         </p>
@@ -17,16 +17,16 @@
     <div class="flex justify-center">
       <div x-data="{ activeButton: 1 }">
         <button class="px-3 rounded-full mr-2 sm:w-24 sm:h-24" id='Button1' x-on:click="activeButton == 1 ? activeButton = null : activeButton = 1">
-             <img id="img1" class="w-full h-full" x-bind:src="activeButton === 1 ? './profilecolored.svg' : './profile.svg'" >
+             <img id="img1" class="w-full h-full" x-bind:src="activeButton === 1 ? './icons/profilecolored.svg' : './icons/profile.svg'" >
          </button>
          <button class="px-3 rounded-full mr-2 sm:w-24 sm:h-24" id="Button2" x-on:click="activeButton == 2 ? activeButton = null : activeButton = 2">
-             <img id="img2" class="w-full h-full" x-bind:src="activeButton === 2 ? './stackcolored.svg' : './stack.svg'">
+             <img id="img2" class="w-full h-full" x-bind:src="activeButton === 2 ? './icons/stackcolored.svg' : './icons/stack.svg'">
          </button>
          <button class="px-3 rounded-full mr-2 sm:w-24 sm:h-24" id="Button3" x-on:click="activeButton == 3 ? activeButton = null : activeButton = 3">
-          <img id="img3" class="w-full h-full" x-bind:src="activeButton === 3 ? './beakercolored.svg' : './beaker.svg'">
+          <img id="img3" class="w-full h-full" x-bind:src="activeButton === 3 ? './icons/beakercolored.svg' : './icons/beaker.svg'">
     </button>
     <button class="px-3 rounded-full mr-2 sm:w-24 sm:h-24" id="Button4" x-on:click="activeButton == 4 ? activeButton = null : activeButton = 4">
-      <img id="img4" class="w-full h-full" x-bind:src="activeButton === 4 ? './emailcolored.svg' : './email.svg'">
+      <img id="img4" class="w-full h-full" x-bind:src="activeButton === 4 ? './icons/emailcolored.svg' : './icons/email.svg'">
   </button>
 </div>
             
@@ -43,25 +43,25 @@
       let Contact;
       
       async function fetchData() {
-      let response = await fetch("bio.html");
+      let response = await fetch("html/bio.html");
       let Bio = await response.text();
       return Bio 
       }
 
       async function fetchData2() {
-        let response = await fetch("skills.html");
+        let response = await fetch("html/skills.html");
         let Skills = await response.text();
         return Skills
       }
 
       async function fetchData3() {
-      let response = await fetch("projects.html");
+      let response = await fetch("html/projects.html");
       let Projects = await response.text();
       return Projects
       }
 
       async function fetchData4() {
-        let response = await fetch("contact.html");
+        let response = await fetch("html/contact.html");
         let Contact = await response.text();
         return Contact
       }
