@@ -6,30 +6,51 @@
   <link href="/dist/output.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+  <style>img {
+  width: 80%;
+  height: 80%;
+}
+
+.animation-pulse {
+animation: pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: translateY(-10%);
+    animation-timing-function: cubic-bezier(0.8, 0, .5, .5);
+  }
+  50% {
+    opacity: .5;
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0, 0, 1.5, 1.5);
+  }
+}
+</style>
 </head>
 <body class="bg-gray-300">
   <container class="h-screen w-screen items-center justify-center flex flex-col text-wrap">
-    <div class="bg-white rounded-md h-full w-full sm:h-3/4 sm:w-3/4 flex flex-col items-center overflow-hidden shadow:lg">
+    <div class="bg-white rounded-md h-full w-full sm:h-4/5 sm:w-3/4 flex flex-col items-center overflow-hidden shadow:lg">
       <div class="font-bold text-4xl sm:py-6" id="Title"></div>
-        <p class="text-gray-700 text-xl flex" id="Content">
+        <p class="text-gray-700 text-md sm:text-xl flex" id="Content">
         </p>
     </div>
-    <div class="flex justify-center">
-      <div x-data="{ activeButton: 1 }">
-        <button class="px-3 rounded-full mr-2 sm:w-24 sm:h-24" id='Button1' x-on:click="activeButton == 1 ? activeButton = null : activeButton = 1">
-             <img id="img1" class="w-full h-full" x-bind:src="activeButton === 1 ? './icons/profilecolored.svg' : './icons/profile.svg'" >
-         </button>
-         <button class="px-3 rounded-full mr-2 sm:w-24 sm:h-24" id="Button2" x-on:click="activeButton == 2 ? activeButton = null : activeButton = 2">
-             <img id="img2" class="w-full h-full" x-bind:src="activeButton === 2 ? './icons/stackcolored.svg' : './icons/stack.svg'">
-         </button>
-         <button class="px-3 rounded-full mr-2 sm:w-24 sm:h-24" id="Button3" x-on:click="activeButton == 3 ? activeButton = null : activeButton = 3">
-          <img id="img3" class="w-full h-full" x-bind:src="activeButton === 3 ? './icons/beakercolored.svg' : './icons/beaker.svg'">
-    </button>
-    <button class="px-3 rounded-full mr-2 sm:w-24 sm:h-24" id="Button4" x-on:click="activeButton == 4 ? activeButton = null : activeButton = 4">
-      <img id="img4" class="w-full h-full" x-bind:src="activeButton === 4 ? './icons/emailcolored.svg' : './icons/email.svg'">
-  </button>
 </div>
-            
+<div class="justify-center">
+  <div x-data="{ activeButton: 1 }">
+    <button class="px-3 rounded-full mr-2 sm:w-24 sm:h-24" id='Button1' x-on:click="activeButton == 1 ? activeButton = null : activeButton = 1">
+         <img id="img1" class="" x-bind:src="activeButton === 1 ? './icons/profilecolored.svg' : './icons/profile.svg'" >
+     </button>
+     <button class="px-3 rounded-full mr-2 sm:w-24 sm:h-24" id="Button2" x-on:click="activeButton == 2 ? activeButton = null : activeButton = 2">
+         <img id="img2" class="" x-bind:src="activeButton === 2 ? './icons/stackcolored.svg' : './icons/stack.svg'">
+     </button>
+     <button class="px-3 rounded-full mr-2 sm:w-24 sm:h-24" id="Button3" x-on:click="activeButton == 3 ? activeButton = null : activeButton = 3">
+      <img id="img3" class="" x-bind:src="activeButton === 3 ? './icons/beakercolored.svg' : './icons/beaker.svg'">
+</button>
+<button class="px-3 rounded-full mr-2 sm:w-24 sm:h-24" id="Button4" x-on:click="activeButton == 4 ? activeButton = null : activeButton = 4">
+  <img id="img4" class="" x-bind:src="activeButton === 4 ? './icons/emailcolored.svg' : './icons/email.svg'">
+</button>
+</div>
      
     
   </container>
