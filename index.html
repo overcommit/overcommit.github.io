@@ -90,8 +90,8 @@ animation: pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;}
       async function init() {
         let [Bio, Skills, Projects, Contact] = await Promise.all([fetchData(), fetchData2(), fetchData3(), fetchData4()]);
         contentArray = [
-          {title: "Bio", content: `${Bio}`},
-          {title: "Skills", content: `${Skills}`},
+          {title: "Personal", content: `${Bio}`},
+          {title: "Technologies", content: `${Skills}`},
           {title: "Projects", content: `${Projects}`},
           {title: "Contact", content: `${Contact}`},
         ];
